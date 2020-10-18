@@ -1,6 +1,12 @@
-const crypto = require('crypto');
-crypto.randomBytes(256).toString('hex');
+// const crypto = require('crypto');
+// crypto.randomBytes(256).toString('hex');
 
-module.exports = {
-    secret : crypto
+// module.exports = {
+//     secret : crypto
+// }
+const crypto = require('crypto').randomBytes(256).toString('hex');
+
+module.exports =
+{
+    secret :crypto,
 }

@@ -1,0 +1,11 @@
+.register-card {
+  max-width: 800px;
+  min-width: 150px;
+  margin: 7% auto;
+}
+.fullwidth {
+  width: 100%;
+}
+.maticon {
+  font-size: 18px;
+}

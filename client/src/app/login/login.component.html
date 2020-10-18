@@ -1,0 +1,46 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>Login Form</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+    <div class="form-group  show-hide-message">
+      <div [ngClass] = "messageClass">
+        {{message}}
+      </div>
+    </div>
+
+    <form action="" [formGroup]="loginForm">
+      <table cellspacing = "0" class="fullwidth">
+
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <input type="text" matInput placeholder="Email" formControlName ="email" name="email" required>
+            <mat-icon matSuffix class="maticon">mail</mat-icon>
+          </mat-form-field>
+          <mat-error *ngIf="Email.invalid && Email.errors.email">
+            Invalid Email
+          </mat-error>
+        </td>
+      </tr>
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <input type="password" matInput placeholder="Password" formControlName ="password" name="password" required>
+            <mat-icon matSuffix class="maticon">lock_open</mat-icon>
+          </mat-form-field>
+          <mat-error *ngIf="Password.invalid && Password.errors.minlength">
+            Password must at least 6 characters!
+          </mat-error>
+        </td>
+      </tr>
+
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="login()" [disabled]="!loginForm.valid">Login</button>
+    <span>Already have an account &nbsp; <a [routerLink]="['/register']">  register </a>  &nbsp; here. </span>
+</mat-card-actions>
+</mat-card>

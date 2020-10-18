@@ -1,0 +1,59 @@
+<mat-card class="register-card">
+  <mat-card-header>
+    <mat-card-title>Register</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form action="" [formGroup]="regForm">
+      <table cellspacing = "0" class="fullwidth">
+
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <input type="text" matInput placeholder="User Name" formControlName ="username" name="username" required>
+            <mat-icon class="maticon" matSuffix class="maticon">perm_identity</mat-icon>
+          </mat-form-field>
+          <mat-error *ngIf="Username.invalid && Username.errors.maxlength">
+            Username should less than 30 character!
+          </mat-error>
+        </td>
+      </tr>
+
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <input type="text" matInput placeholder="Email" formControlName ="email" name="email" required>
+            <mat-icon matSuffix class="maticon">mail</mat-icon>
+          </mat-form-field>
+          <mat-error *ngIf="Email.invalid && Email.errors.email">
+            Invalid Email
+          </mat-error>
+        </td>
+      </tr>
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <input type="password" matInput placeholder="Password" formControlName ="password" name="password" required>
+            <mat-icon matSuffix class="maticon">lock_open</mat-icon>
+          </mat-form-field>
+          <mat-error *ngIf="Password.invalid && Password.errors.minlength">
+            Password must at least 6 characters!
+          </mat-error>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <mat-form-field class="fullwidth">
+          <input type="password" matInput placeholder="Repead Password" formControlName ="repeadpassword" name="repeadpassword" required>
+          <mat-icon matSuffix class="maticon">lock_open</mat-icon>
+        </mat-form-field>
+        <mat-error *ngIf="Repeadpassword.invalid && Repeadpassword.errors.passwordMatch">Password does not match</mat-error>
+      </td>
+    </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="register()" [disabled]="!regForm.valid">Register</button>
+    <span>Already have an account &nbsp; <a [routerLink]="['/login']">  login </a>  &nbsp; here. </span>
+</mat-card-actions>
+</mat-card>
