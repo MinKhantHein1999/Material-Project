@@ -1,6 +1,6 @@
 <mat-card class="register-card">
   <mat-card-header>
-    <mat-card-title>Register</mat-card-title>
+    <mat-card-title> <h1 class="font-weight-bold">Register Form</h1></mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form action="" [formGroup]="regForm">
@@ -54,6 +54,6 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="warn" (click)="register()" [disabled]="!regForm.valid">Register</button>
-    <span>Already have an account &nbsp; <a [routerLink]="['/login']">  login </a>  &nbsp; here. </span>
+    <span class="text-primary">Already have an account &nbsp; <a class="text-danger" [routerLink]="['/login']">  login </a>  &nbsp; here. </span>
 </mat-card-actions>
 </mat-card>

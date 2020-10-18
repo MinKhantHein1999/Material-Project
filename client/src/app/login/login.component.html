@@ -1,6 +1,6 @@
 <mat-card class="login-card">
   <mat-card-header>
-    <mat-card-title>Login Form</mat-card-title>
+    <mat-card-title><h1 class="font-weight-bold">Login Form</h1></mat-card-title>
   </mat-card-header>
   <mat-card-content>
 
@@ -41,6 +41,6 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="warn" (click)="login()" [disabled]="!loginForm.valid">Login</button>
-    <span>Already have an account &nbsp; <a [routerLink]="['/register']">  register </a>  &nbsp; here. </span>
+    <span class="text-primary">If you don't have an account &nbsp; <a class="text-danger" [routerLink]="['/register']">  register </a>  &nbsp; here. </span>
 </mat-card-actions>
 </mat-card>

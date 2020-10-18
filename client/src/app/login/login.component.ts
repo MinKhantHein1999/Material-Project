@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         }
         else{
           console.log(data);
-          localStorage.setItem('token' , data.token);
+          this.authService.storeUserData(data.token,data.user)
           this.loginForm.reset();
           this.router.navigate(['dashboard']);
         }

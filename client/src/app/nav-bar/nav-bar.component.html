@@ -10,15 +10,22 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <li *ngIf="authService.LoggedIn()" class="nav-item">
         <a class="nav-link mr-3" routerLink = "/dashboard">Dashboard </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.LoggedIn()">
+        <a class="nav-link mr-3" routerLink = "/profile">Profile</a>
+      </li>
+      <li class="nav-item" *ngIf="!authService.LoggedIn()">
         <a class="nav-link mr-3" routerLink = "/register" >Register</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.LoggedIn()">
         <a class="nav-link mr-3" routerLink = "/login" >Login</a>
       </li>
+      <li class="nav-item" *ngIf="authService.LoggedIn()">
+        <a class="nav-link mr-3" (click)="onLogout()" style="cursor: pointer;" >Log Out</a>
+      </li>
+
     </ul>
   </div>
 </nav>
