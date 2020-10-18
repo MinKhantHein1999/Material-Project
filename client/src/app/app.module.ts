@@ -17,6 +17,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './guard/auth.guard';
 import { NotauthGuard } from './guard/notauth.guard';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NotauthGuard } from './guard/notauth.guard';
     DashboardComponent,
     NavBarComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

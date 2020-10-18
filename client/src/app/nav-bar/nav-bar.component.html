@@ -16,6 +16,9 @@
       <li class="nav-item" *ngIf="authService.LoggedIn()">
         <a class="nav-link mr-3" routerLink = "/profile">Profile</a>
       </li>
+      <li class="nav-item" *ngIf="authService.LoggedIn()">
+        <a class="nav-link mr-3" routerLink = "/blog">Blog</a>
+      </li>
       <li class="nav-item" *ngIf="!authService.LoggedIn()">
         <a class="nav-link mr-3" routerLink = "/register" >Register</a>
       </li>

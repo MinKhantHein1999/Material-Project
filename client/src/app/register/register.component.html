@@ -32,8 +32,11 @@
         <tr>
           <td>
           <mat-form-field class="fullwidth">
-            <input type="password" matInput placeholder="Password" formControlName ="password" name="password" required>
-            <mat-icon matSuffix class="maticon">lock_open</mat-icon>
+            <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName ="password" name="password" required>
+            <!-- <mat-icon matSuffix class="maticon">lock_open</mat-icon> -->
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
           </mat-form-field>
           <mat-error *ngIf="Password.invalid && Password.errors.minlength">
             Password must at least 6 characters!
@@ -43,8 +46,11 @@
       <tr>
         <td>
         <mat-form-field class="fullwidth">
-          <input type="password" matInput placeholder="Repead Password" formControlName ="repeadpassword" name="repeadpassword" required>
-          <mat-icon matSuffix class="maticon">lock_open</mat-icon>
+          <input [type]="hide ? 'password' : 'text'" matInput placeholder="Repead Password" formControlName ="repeadpassword" name="repeadpassword" required>
+          <!-- <mat-icon matSuffix class="maticon">lock_open</mat-icon> -->
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
         <mat-error *ngIf="Repeadpassword.invalid && Repeadpassword.errors.passwordMatch">Password does not match</mat-error>
       </td>

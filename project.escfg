@@ -1,0 +1,26 @@
+[
+    [
+        "ChipType",
+        "19C030THS"
+    ],
+    [
+        "cleanFlag",
+        true
+    ],
+    [
+        "ProjectType",
+        "HRCC"
+    ],
+    [
+        "ToolChain",
+        ""
+    ],
+    [
+        "TargetPath",
+        "Debug"
+    ],
+    [
+        "Name",
+        "Material_Mean_Pj"
+    ]
+]
