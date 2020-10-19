@@ -1,10 +1,35 @@
 <div class="container px-5">
-  <h1 class="page-header mt-4">Blog Feed</h1>
+  <h1 class="title mt-4 font-weight-bold">Blog Feed</h1><hr>
 
 <div class="mt-4">
   <button mat-raised-button *ngIf="!newPost" (click)="newBlockForm()">New Post</button>&nbsp;&nbsp;
-  <button mat-flat-button color="warn" [disabled]="loadingBload"  (click)="reloadBlogs()"><mat-icon>refresh</mat-icon>Reload</button>
+  <button mat-flat-button color="warn" [disabled]="loadingBload"  (click)="reloadBlogs()" *ngIf="!newPost"><mat-icon>refresh</mat-icon>Reload</button>
 </div>
+
+    <!-- Blog Form -->
+
+    <mat-card class="example-card" style="margin: 5px auto;" *ngIf="newPost">
+      <mat-card-content>
+        <form [formGroup]="formBlog" (ngSubmit)="onBlogSubmit()" class="form mt-3" >
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" placeholder="Title" formControlName="title">
+          </div>
+
+          <div class="form-group">
+            <label for="body">Body</label>
+            <textarea class="form-control" name="body" rows="10" placeholder="Body" formControlName="body"></textarea>
+          </div>
+
+          <button mat-raised-button color="warn" (click)="goBack()">Go Back</button>&nbsp;
+          <button mat-raised-button type="submit" [disabled]="!formBlog.valid">Submit</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+
+
+    <!-- Post Form -->
 
   <div class="card mt-3" *ngIf="!newPost">
     <div class="card-header bg-primary text-white">
@@ -45,7 +70,21 @@
             </div>
           </div>
       </div>
-
     </div>
+
+      <!-- footer End -->
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <button type="button" name="button" class="btn btn-md btn-danger" (click)="draftComment()">Post Comment</button><br>
+          <!-- <form action="">
+              <textarea id="comment" class="form-control" name="comment" rows="10"></textarea><br>
+              <button type="button" name="button" class="btn btn-primary btn-md">Submit Post</button>
+              <button type="button" name="button" class="btn btn-danger btn-md ml-2">Cancel</button>
+          </form> -->
+        </li>
+        <!-- <li class="list-group-item">Disabled item</li> -->
+      </ul>
+
   </div>
 </div>

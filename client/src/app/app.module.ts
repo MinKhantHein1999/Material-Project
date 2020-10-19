@@ -18,6 +18,7 @@ import { AuthService } from './service/auth.service';
 import { AuthGuard } from './guard/auth.guard';
 import { NotauthGuard } from './guard/notauth.guard';
 import { BlogComponent } from './blog/blog.component';
+import { BlogService } from './service/blog.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { BlogComponent } from './blog/blog.component';
     NavBarComponent,
     LoginComponent,
     ProfileComponent,
-    BlogComponent
+    BlogComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,11 +39,9 @@ import { BlogComponent } from './blog/blog.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FlashMessagesModule.forRoot()
-
-
+    FlashMessagesModule.forRoot(),
   ],
-  providers: [AuthService,AuthGuard,NotauthGuard],
-  bootstrap: [AppComponent]
+  providers: [AuthService, AuthGuard, NotauthGuard, BlogService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

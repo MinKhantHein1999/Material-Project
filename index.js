@@ -6,6 +6,7 @@ const path = require('path');
 const mongoose = require ('mongoose');
 const cors = require ('cors');
 
+
 mongoose.connect("mongodb+srv://minkhanthein:123@mean-angular.hkxiz.mongodb.net/<dbname>?retryWrites=true&w=majority",{ useUnifiedTopology: true, useNewUrlParser: true },()=>{
     console.log("DB is connected")
 })
@@ -22,6 +23,9 @@ app.use(cors());
 const UserRouter = require('./route/auth');
 app.use(express.json());
 app.use('/auth', UserRouter);
+
+const blogs = require ('./route/blogs')
+app.use('/blogs',blogs);
 
 
 app.listen(PORT,()=>{
