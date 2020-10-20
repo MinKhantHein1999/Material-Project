@@ -30,8 +30,8 @@ export class BlogComponent implements OnInit {
   });
 
   constructor(
-    private authService: AuthService,
-    private blogService: BlogService
+    public authService: AuthService,
+    public blogService: BlogService
   ) {}
 
   newBlockForm() {

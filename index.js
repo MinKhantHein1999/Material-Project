@@ -12,10 +12,10 @@ mongoose.connect("mongodb+srv://minkhanthein:123@mean-angular.hkxiz.mongodb.net/
 })
 
 
-app.use (express.static(__dirname + '/client/dist/client'))
+app.use (express.static(__dirname + '/public'))
 
 app.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname + '/client/dist/client/index.html'))
+    res.sendFile(path.join(__dirname + '/public/index.html'))
 })
 
 app.use(cors());
