@@ -18,6 +18,15 @@ router.post('/newBlog',async (req,res)=>{
     }
 })
 
+router.get('/allBlogs',async(req,res)=>{
+    try {
+        const blog = await  Blog.find();
+        res.json({success : true, 'blogs' :blog});
+    } catch (error) {
+        res.json({success : false, message : error})
+    }
+})
+
 
 
 module.exports = router;

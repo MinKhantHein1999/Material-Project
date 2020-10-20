@@ -12,6 +12,7 @@ export class BlogComponent implements OnInit {
   newPost = false;
   loadingBload = false;
   username: any;
+  blogPost;
 
   formBlog = new FormGroup({
     title: new FormControl(
@@ -59,14 +60,26 @@ export class BlogComponent implements OnInit {
     };
     this.blogService.newBlog(blog).subscribe((data) => {
       console.log('Blog saved');
+      this.getallBlogs();
+      window.location.reload();
+    });
+  }
+
+  getallBlogs() {
+    this.blogService.getAllBlogs().subscribe((data) => {
+      // console.log(data);
+      this.blogPost = data.blogs;
     });
   }
 
   ngOnInit() {
-    this.authService.getProfile().subscribe((data) => {
-      this.username = data.user.username;
-    });
+    // this.authService.getProfile().subscribe((profile) => {
+    //   console.log(profile);
+    // this.username = profile.user.username;
+    // });
+    this.getallBlogs();
   }
+
   // blog = {
   //   title : this.formBlog.get('title').value,
   //   body : this.formBlog.get('body').value,

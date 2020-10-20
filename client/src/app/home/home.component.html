@@ -4,8 +4,9 @@
     <h4 class="lead">Welcome to the MEAN Stack Application by <span class="dev">Min Khant Hein</span >  </h4>
     <!-- <button class="btn btn-primary btn-small mt-2" routerLink ="/register">Register</button> &nbsp;
     <button class="btn btn-light btn-small mt-2" routerLink ="/login">Login</button> -->
-    <button mat-raised-button color="primary" routerLink ="/register">Register</button>&nbsp;
-    <button mat-raised-button color="warn" routerLink ="/login">Login</button>
+    <button mat-raised-button color="primary" routerLink ="/register" *ngIf="!authService.LoggedIn()">Register</button>&nbsp;
+    <button mat-raised-button color="warn" routerLink ="/login" *ngIf="!authService.LoggedIn()">Login</button>&nbsp;
+    <button mat-raised-button color="warn" routerLink ="/blog" *ngIf="authService.LoggedIn()">View Blog</button>
   </div>
 
     <div class="row 1 ml-3">

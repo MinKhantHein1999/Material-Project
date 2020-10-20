@@ -62,6 +62,8 @@ router.use((req,res,next)=>{
     })
   }
 });
+
+
 router.get("/profile",(req,res)=>{
   User.findOne({_id:req.decoded.userId}).select('username email').exec((err,user)=>{
     if(err){
@@ -72,7 +74,7 @@ router.get("/profile",(req,res)=>{
         res.json({success:false,message:'User not found'})
       }
       else{
-        res.json({success:true,user:user})
+        res.json({success:true, users: user})
       }
     }
   })
